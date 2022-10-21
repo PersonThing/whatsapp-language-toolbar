@@ -31,7 +31,6 @@
     border-radius: 4px;
     width: 100%;
     cursor: pointer;
-    text-align: right;
   }
 
   button:hover {

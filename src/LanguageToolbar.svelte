@@ -1,6 +1,6 @@
 {#if text}
   <div class="language-toolbar-container">
-    <div class="language-toolbar" style="left: {x}px; top:{y}px; transform: translateX(-100%);">
+    <div class="language-toolbar" style:left="{left}px" style:top="{top}px" style:transform class:from-me={isFromMe}>
       <TextControls {text} />
     </div>
   </div>
@@ -10,8 +10,17 @@
   import TextControls from "./LanguageToolbar.TextControls.svelte"
 
   export let text = null
-  export let y = 0
-  export let x = 0
+  export let isFromMe = false
+  export let position = {
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0
+  }
+
+  $: left = position.left
+  $: top = position.top
+  $: transform = `translateX(-100%)`
 </script>
 
 <style>
@@ -24,15 +33,14 @@
   }
 
   .language-toolbar {
+    position: absolute;
     font-size: 12px;
     font-family: Arial;
-    position: absolute;
     white-space: nowrap;
     padding: 10px;
-    background-color: #222E35;
+    background-color: rgb(32,44,51);
     color: #e9edef;
     border-radius: 15px;
-    border-top-right-radius: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
