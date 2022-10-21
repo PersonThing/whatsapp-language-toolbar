@@ -1,8 +1,7 @@
 <div class="language-toolbar-container">
-
   <!-- this toolbar appears next to text messages -->
   {#if text || hasAudio}
-    <div class="language-toolbar" style="right: 0px; top:{hasAudio ? y - 20 : y}px;">
+    <div class="language-toolbar" style="left: {x}px; top:{y - 25}px;">
       {#if text}
         <TextControls {text} />
       {/if}
@@ -19,8 +18,8 @@
 
   export let text = null
   export let hasAudio = false
-  export let isFromMe = false // might use for something later...
   export let y = 0
+  export let x = 0
 </script>
 
 <style>
@@ -33,22 +32,42 @@
   }
 
   .language-toolbar {
+    font-size: 12px;
+    font-family: Arial;
     position: absolute;
+    white-space: nowrap;
     padding: 4px;
-    background-color: rgba(255, 255, 255, 0.5);
-    font-size: 16px;
+    background-color: rgba(255, 255, 255, 0.6);
+    color: #000;
     border-radius: 4px;
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 4px;
+    gap: 1px;
   }
 
   :global(.language-toolbar button) {
-    padding: 3px 8px;
-    background-color: #fff;
-    color: #333;
-    border-radius: 4px;
+    padding: 5px 10px;
+    background: none;
+    border: none;
+    color: #000;
+    border-radius: 0;
+    font-size: 12px;
+    font-family: Arial;
+  }
+
+  :global(.language-toolbar button:hover) {
+    background: rgba(255, 255, 255, 0.5);
+  }
+
+  :global(.language-toolbar button:first-child) {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+  }
+
+  :global(.language-toolbar button:last-child) {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
   }
 
   :global(.language-toolbar button.selected) {

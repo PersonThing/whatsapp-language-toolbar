@@ -2,8 +2,9 @@
 <div class="playback-speed-indicator">
   {playbackSpeed}x
 </div>
-
-<button on:click={transcribe}>Transcribe</button>
+<div>
+  <button on:click={transcribe}>Transcribe</button>
+</div>
 
 <script>
   let playbackSpeed = 1
@@ -25,7 +26,5 @@
   .playback-speed-indicator {
     text-align: center;
     width: 40px;
-    font-size: 12px;
-    color: #333;
   }
 </style>
