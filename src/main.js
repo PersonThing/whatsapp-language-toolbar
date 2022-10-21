@@ -15,16 +15,10 @@ if (document.location.host == 'web.whatsapp.com') {
     const closestMessageAncestor = e.target?.closest('.focusable-list-item')
     if (closestMessageAncestor) {
       const textContainer = closestMessageAncestor.querySelector('.copyable-text.selectable-text')
-
-      // TODO: when we get audio working, change this back
-      // const hasAudio = closestMessageAncestor.querySelector('[data-testid=audio-play], [data-testid=audio-pause]') != null
-      const hasAudio = false
-
       const messageContainer = closestMessageAncestor.querySelector('[data-testid=msg-container]')
       const position = messageContainer.getBoundingClientRect()
       toolbar.$set({
         text: textContainer?.innerText?.trim(),
-        hasAudio,
         x: position.left,
         y: position.top
       })

@@ -1,13 +1,13 @@
 <div class="language-toolbar-fixture">
   <LanguageToolbar
     text="Hello, world!"
-    y={100}
-    x={50} />
+    y={50}
+    x={200} />
 
   <LanguageToolbar
     text="Hello, world!"
-    y={150}
-    x={50} />
+    y={350}
+    x={200} />
 </div>
 
 <script>
