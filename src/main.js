@@ -1,7 +1,6 @@
 import LanguageToolbar from './LanguageToolbar.svelte'
 
 const container = document.createElement('div')
-container.style = 'position: fixed; top: 0; left: 0; width: 100%; z-index: 9999;'
 document.body.prepend(container)
 
 const toolbar = new LanguageToolbar({
@@ -14,8 +13,10 @@ document.body.addEventListener('mouseover', e => {
   if (closestMessageAncestor) {
     const position = closestMessageAncestor.getBoundingClientRect()
     const textContainer = closestMessageAncestor.querySelector('.copyable-text.selectable-text')
+    const hasAudio = closestMessageAncestor.querySelector('[data-testid=audio-play], [data-testid=audio-pause]') != null
     toolbar.$set({
       text: textContainer?.innerText?.trim(),
+      hasAudio,
       x: position.left,
       y: position.top
     })
