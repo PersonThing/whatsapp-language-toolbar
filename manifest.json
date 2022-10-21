@@ -2,6 +2,7 @@
   "manifest_version": 3,
   "name": "WhatsApp Language Toolbar",
   "version": "0.0.1",
+  "description": "Add translate options to WhatsApp, for now just Portuguese, Spanish, and English",
 
   "content_scripts": [
     {
