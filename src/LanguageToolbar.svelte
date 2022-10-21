@@ -2,7 +2,7 @@
 
   <!-- this toolbar appears next to text messages -->
   {#if text || hasAudio}
-    <div class="language-toolbar" style="left:{x}px; top:{y - 30}px;">
+    <div class="language-toolbar" style="left:{x}px; top:{hasAudio ? y - 30 : y}px;">
       {#if text}
         <button on:click={translate}>Translate</button>
       {/if}
