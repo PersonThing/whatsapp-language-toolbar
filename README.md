@@ -14,8 +14,8 @@ A simple language toolbar for whatsapp on the web.
 - For now, it just opens 
 
 ## Develop
-- Change some code
-- `npm run build`
+- `npm run watch`
+- Change some code (dist will be updated automatically)
 - in chrome://extensions, click the refresh button on the unpacked extension
 - reload web.whatsapp.com
 

@@ -2,54 +2,25 @@
 
   <!-- this toolbar appears next to text messages -->
   {#if text || hasAudio}
-    <div class="language-toolbar" style="left:{x}px; top:{hasAudio ? y - 30 : y}px;">
+    <div class="language-toolbar" style="right: 0px; top:{hasAudio ? y - 20 : y}px;">
       {#if text}
-        <button on:click={translate}>Translate</button>
+        <TextControls {text} />
       {/if}
       {#if hasAudio}
-        {#each speedOptions as speed}
-          <button on:click={() => (playbackSpeed=speed)} class:selected={speed == playbackSpeed}>{speed}</button>
-        {/each}
+        <AudioControls />
       {/if}
     </div>
   {/if}
 </div>
 
 <script>
+  import AudioControls from "./LanguageToolbar.AudioControls.svelte"
+  import TextControls from "./LanguageToolbar.TextControls.svelte"
+
   export let text = null
   export let hasAudio = false
-  export let x = 0
+  export let isFromMe = false // might use for something later...
   export let y = 0
-
-  let playbackSpeed = 1
-  let speedOptions = [
-    0.25,
-    0.5,
-    0.75,
-    1.0,
-    1.25,
-    1.5,
-    1.75,
-    2.0,
-    3.0
-  ]
-
-  function translate() {
-    if (!text?.length) return
-
-    // quick hack.. just open google translate window
-    const url = `https://translate.google.com/#view=home&op=translate&sl=auto&tl=en&text=${encodeURIComponent(text)}`
-    window.open(url, '_blank')
-  }
-
-  $: if (playbackSpeed) {
-    // modify audio elements on the page when speed changes
-    const audioElements = document.querySelectorAll('audio')
-    console.log('audioElements', audioElements)
-    audioElements.forEach(el => {
-      el.playbackRate = playbackSpeed
-    })
-  }
 </script>
 
 <style>
@@ -73,14 +44,14 @@
     gap: 4px;
   }
 
-  .language-toolbar button {
+  :global(.language-toolbar button) {
     padding: 3px 8px;
     background-color: #fff;
     color: #333;
     border-radius: 4px;
   }
 
-  .language-toolbar button.selected {
+  :global(.language-toolbar button.selected) {
     background-color: #333;
     color: #fff;
   }

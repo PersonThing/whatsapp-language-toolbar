@@ -14,10 +14,10 @@ document.body.addEventListener('mouseover', e => {
     const position = closestMessageAncestor.getBoundingClientRect()
     const textContainer = closestMessageAncestor.querySelector('.copyable-text.selectable-text')
     const hasAudio = closestMessageAncestor.querySelector('[data-testid=audio-play], [data-testid=audio-pause]') != null
+    const isFromMe = closestMessageAncestor.classList.contains('message-out')
     toolbar.$set({
       text: textContainer?.innerText?.trim(),
       hasAudio,
-      x: position.left,
       y: position.top
     })
   } else {
