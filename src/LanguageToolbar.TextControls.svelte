@@ -6,17 +6,30 @@
   import languages from './languages.js'
 
   export let text = null
-  
-  let langs = [
-   languages.pt,
-   languages.es,
-   languages.en
-  ]
 
-  function translateText(targetLang) {
-    if (!text?.length) return
-    const translationUrl = `https://translate.google.com/#view=home&op=translate&sl=auto&tl=${targetLang}&text=${encodeURIComponent(text)}`
-    window.open(translationUrl, '_blank')
+  let langs = [languages.pt, languages.es, languages.en]
+
+  // function translateText(targetLang) {
+  //   if (!text?.length) return
+  //   const translationUrl = `https://translate.google.com/#view=home&op=translate&sl=auto&tl=${targetLang}&text=${encodeURIComponent(text)}`
+  //   window.open(translationUrl, '_blank')
+  // }
+
+  async function translateText(targetLang) {
+    fetch('http://localhost:5999/translate', {
+      method: 'POST',
+      body: JSON.stringify({
+        text,
+        targetLang,
+      }),
+      headers: { 'Content-Type': 'application/json' },
+    })
+      .then(res => {
+        console.log(res)
+      })
+      .catch(err => {
+        console.error(err)
+      })
   }
 </script>
 

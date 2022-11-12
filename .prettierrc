@@ -1,0 +1,10 @@
+{
+  "singleQuote": true,
+  "semi": false,
+  "useTabs": false,
+  "tabWidth": 2,
+  "svelteSortOrder": "markup-scripts-styles",
+  "printWidth": 150,
+  "trailingComma": "es5",
+  "arrowParens": "avoid"
+}

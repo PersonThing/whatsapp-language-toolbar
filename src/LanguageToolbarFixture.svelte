@@ -1,12 +1,3 @@
-<!-- 
-
-    const textContainer = closestMessageAncestor.querySelector('.copyable-text.selectable-text')
-    const messageContainer = closestMessageAncestor.querySelector('[data-testid=msg-container]')
-    const position = messageContainer.getBoundingClientRect()
-    const isFromMe = closestMessageAncestor.classList.contains('message-out')
-
--->
-
 <div class="language-toolbar-fixture">
   <div class="message-list">
     <div class="focusable-list-item message-in">
@@ -22,13 +13,13 @@
   .language-toolbar-fixture {
     position: fixed;
     width: 100vw;
-    height: 100vh; 
+    height: 100vh;
     top: 0;
     left: 0;
     background: #333;
     padding: 20px;
     padding-left: 200px;
-    font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
     font-size: 14px;
   }
 
@@ -58,10 +49,10 @@
   }
 
   .message-in .message {
-    background-color: #222E35;
+    background-color: #222e35;
   }
 
   .message-out .message {
-    background-color: #005C4B;
+    background-color: #005c4b;
   }
 </style>

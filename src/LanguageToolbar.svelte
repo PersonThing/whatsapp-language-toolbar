@@ -1,21 +1,20 @@
 {#if text}
   <div class="language-toolbar-container">
-    <div class="language-toolbar" style:left="{left}px" style:top="{top}px" style:transform class:from-me={isFromMe}>
+    <div class="language-toolbar" style:left="{left}px" style:top="{top}px" style:transform>
       <TextControls {text} />
     </div>
   </div>
 {/if}
 
 <script>
-  import TextControls from "./LanguageToolbar.TextControls.svelte"
+  import TextControls from './LanguageToolbar.TextControls.svelte'
 
   export let text = null
-  export let isFromMe = false
   export let position = {
     left: 0,
     right: 0,
     top: 0,
-    bottom: 0
+    bottom: 0,
   }
 
   $: left = position.left
@@ -38,7 +37,7 @@
     font-family: Arial;
     white-space: nowrap;
     padding: 10px;
-    background-color: rgb(32,44,51);
+    background-color: rgb(32, 44, 51);
     color: #e9edef;
     border-radius: 15px;
     display: flex;
