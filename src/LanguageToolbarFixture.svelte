@@ -58,7 +58,7 @@
   }
 
   .message-in .message {
-    background-color: #222E35;
+    background-color: #222E34;
   }
 
   .message-out .message {
